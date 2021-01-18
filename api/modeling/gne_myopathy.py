@@ -53,14 +53,15 @@ class GNEMyopathyModel():
         """
         self.values = values 
         
-    def disease_age_vis(self, age):
+    def disease_age_vis(self, age: float, save_path: Optional[str] = None
+                        ) -> None:
         # set disease age as 0.
         t = np.linspace(-40,40, 81)
         delta2 =  0.0001
         df = self.df
         with vis_utils.BasicPlot(title="Fittingness of disease age",
                                 ylabel="Proportion Max Strength", xlabel="Disease Age",
-                                figsize=(6,4), dpi=150) as p:
+                                figsize=(6,4), dpi=150, save_path=save_path) as p:
             for (i ,row), v in zip(df.iterrows(), self.values):
                 name, theta, beta, sigma = row
                 lin = theta + beta*(t - 0)
