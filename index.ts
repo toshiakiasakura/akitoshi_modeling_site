@@ -8,6 +8,7 @@ import bodyParser from 'body-parser'
 
 import { router as indexRouter } from './routes/index'
 import { userRouter } from './routes/users'
+import { modelRouter } from './routes/model.route'
 
 const app = express();
 
@@ -38,6 +39,7 @@ app.use(cookieParser())
  */
 app.use("/api/", indexRouter)
 app.use("/api/users", userRouter)
+app.use("/api/models", modelRouter)
 
 /**
  * Handles any requests that don't match the ones above

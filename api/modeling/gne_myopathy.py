@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-
+sns.set(context="paper" , style ="whitegrid",rc={"figure.facecolor":"white"}, font="IPAexGothic")
 from typing import Union, Optional, List, Dict, Callable, Any, Tuple
 from types import ModuleType
 
@@ -53,7 +53,7 @@ class GNEMyopathyModel():
         """
         self.values = values 
         
-    def disease_age_vis(self, age: float, save_path: Optional[str] = None
+    def disease_age_vis(self, age: float, save_path: Optional[str] = None, show: bool = True 
                         ) -> None:
         # set disease age as 0.
         t = np.linspace(-40,40, 81)
@@ -61,7 +61,7 @@ class GNEMyopathyModel():
         df = self.df
         with vis_utils.BasicPlot(title="Fittingness of disease age",
                                 ylabel="Proportion Max Strength", xlabel="Disease Age",
-                                figsize=(6,4), dpi=150, save_path=save_path) as p:
+                                figsize=(6,4), dpi=150, save_path=save_path, show=show) as p:
             for (i ,row), v in zip(df.iterrows(), self.values):
                 name, theta, beta, sigma = row
                 lin = theta + beta*(t - 0)

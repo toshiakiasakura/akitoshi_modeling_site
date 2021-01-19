@@ -67,6 +67,6 @@
     "skipLibCheck": true,                     /* Skip type checking of declaration files. */
     "forceConsistentCasingInFileNames": true  /* Disallow inconsistently-cased references to the same file. */
   },
-  "include": ["*/**/*.ts", "*.ts", "client/src/components/gne_myopathy.component.tsx"],
+  "include": ["*/**/*.ts", "*.ts", "client/src/components/gne_myopathy.component.tsx", "client/src/helpers/form.helper.tsx"],
   "exclude": ["client", "dist", "node_modules"],
 }

@@ -9,7 +9,7 @@ bar_args = dict(width=1,linewidth=0.1,edgecolor="black",color="lightblue")
 
 class BasicPlot():
     def __init__(self, xlim=None, ylim=None, xlabel="", ylabel="",title="",tight=True,
-            save_path=None, figsize=(5,3), dpi=150):
+            save_path=None, figsize=(5,3), dpi=150, show=True):
         self.fig = plt.figure(figsize=figsize,dpi=dpi)
         self.ax = self.fig.add_subplot(111)
         self.ax.set_xlabel(xlabel)
@@ -19,6 +19,7 @@ class BasicPlot():
         self.save_path = save_path
         self.title = title
         self.tight = tight
+        self.show = show
 
     def __enter__(self):
         return(self)
@@ -29,7 +30,8 @@ class BasicPlot():
         plt.tight_layout() if self.tight else None
         if self.save_path:
             plt.savefig(self.save_path)
-        plt.show()
+        if self.show:
+            plt.show()
 
     def option(self):
         '''This method is for additional graphic setting. 
