@@ -11,6 +11,12 @@ import './styles/_index.sass'
 function App() {
   return (
     <Router>
+      <Helmet>
+        <link
+            href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css"
+            rel="stylesheet"
+        />
+      </Helmet>
       <Switch>
         <Route exact path='/' component ={Top} />
         <Route exact path='/gne-myopathy' component ={GNEPages} />

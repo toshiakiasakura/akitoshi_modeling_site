@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form'
 import { ModelService } from '../services/modeling.service'
 import { Form } from '../helpers/types.helper'
 import { FormRow, SubmitButton } from '../helpers/form.helper' 
+import { GNEDescription } from './gne_description.component'
 import test_img from '../img/test.png'
 
 function ValueForm(props:{
@@ -12,7 +13,8 @@ function ValueForm(props:{
 }){
   const require_json = {
     required: 'Need input',
-    validate: (v:number) => (v > 0 && v < 100) || 'range is from 0 to 100'
+    validate: (v:string) => 
+      (parseInt(v) > 0 && parseInt(v) < 100) || 'range is from 0 to 100'
   }
   return (
     <FormRow 
@@ -64,14 +66,15 @@ function GNEFormResult () {
       )
     } else {
       return(
-        <img 
-          src={state.url} 
-          alt="picture"
-          style={{border: "1px #000000 solid"}} 
-        />
+        <div className="text-center">
+          <img 
+            src={state.url} 
+            alt="picture"
+            style={{border: "1px #000000 solid"}} 
+          />
+        </div>
       )
     }
-
   }
   return(
     <div>
@@ -104,29 +107,18 @@ function GNEFormResult () {
   )
 }
 
-function Description(){
-  return(
-    <React.Fragment>
-      <h2> Description </h2>
-      Here is a description of this modeling.
-      <img 
-        src={test_img} 
-        style={{border: "1px #000000 solid"}} 
-        alt="Fitting results"
-      /> <br />
-      Test.
-    </React.Fragment>
 
-  )
-
-}
 
 function GNEMyopathyPage(){
   return(
     <div className="container">
       <h1> GNE myopathy - Estimating "disease age" from QMT.</h1>
+      <p>
+      Input the percetage (%) of muscle strength.  
+
+      </p>
       <GNEFormResult />
-      <Description /> 
+      <GNEDescription /> 
     </div>
   )
 }

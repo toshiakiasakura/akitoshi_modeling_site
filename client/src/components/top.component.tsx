@@ -6,7 +6,7 @@ import {
 export function Top(){
   return(
     <div className="container">
-      <h1>Akitoshi's modeling site</h1>
+      <h1>Akitoshi's Modeling site</h1>
       <div>
         - &nbsp; 
         <Link to="/gne-myopathy" >
