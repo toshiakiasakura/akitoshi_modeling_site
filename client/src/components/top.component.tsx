@@ -6,7 +6,10 @@ import {
 export function Top(){
   return(
     <div className="container">
-      <h1>Toshiaki's Modeling site</h1>
+      <h1>Toshiaki's Scrap Net </h1>
+      <p>
+        Mainly include the contents of mathematical modeling. <br />
+      </p>
       <div>
         - &nbsp; 
         <Link to="/gne-myopathy" >

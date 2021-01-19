@@ -1,10 +1,12 @@
 {
-  "name": "test-typescript",
+  "name": "toshiaki_scrap_net",
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "tsc && node ./dist/index.js"
+    "start": "rm -rf dist && tsc && node ./dist/index.js",
+    "deploy": "rm -rf dist && tsc && forever start dist/index.js && cd client && yarn build"
   },
+  "main":"index.js",
   "dependencies": {
     "cookie-parser": "^1.4.5",
     "debug": "^2.6.9",

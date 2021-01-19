@@ -41,11 +41,18 @@ app.use("/api/", indexRouter)
 app.use("/api/users", userRouter)
 app.use("/api/models", modelRouter)
 
+
+/**
+ * Serve the static files from the React app
+ */
+app.use(express.static(path.join(__dirname, '/../client/build')))
+
 /**
  * Handles any requests that don't match the ones above
  */
 app.get('*', (req:Request,res:Response) =>{
-    res.sendFile(path.join(__dirname, '/../client/build/index.html'))
+  console.log(path.join(__dirname, '/../client/build/index.html'))
+  res.sendFile(path.join(__dirname, '/../client/build/index.html'))
 })
 
 const port = 3002
