@@ -9,7 +9,7 @@ import { PythonShell } from 'python-shell'
 
 
 const PYTHON_DIR = `${__dirname}/../../../api/modeling`
-const PYTHON_PATH = `/home/toshiaki/.pyenv/shims/python`
+const PYTHON_PATH = process.env.TOSHIAKI_SCRAP_PYTHON_PATH
 
 export class Models {
   static GNE_myopathy = (req: Request, res:Response) => {
